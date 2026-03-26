@@ -1,0 +1,455 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0d7377;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    padding: 0.5rem;
+}
+
+.nav {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    margin: 0 0.5rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #14a085;
+    font-weight: 700;
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=1600');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content .hero-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+}
+
+.hero-btn {
+    background-color: #14a085;
+    color: #ffffff;
+    border: none;
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    background-color: #0d7377;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(20, 160, 133, 0.3);
+}
+
+/* Responsive hero text (no clamp) */
+@media (max-width: 768px) {
+    .hero-content .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        height: 80vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Sections */
+.destinations {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+}
+
+.packages {
+    padding: 5rem 0;
+    background-color: #ffffff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.7rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    color: #0d7377;
+}
+
+/* Responsive section title */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Grids */
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Cards */
+.destination-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #0d7377;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Background images (no & in HTML attributes) */
+.destination-card.jaipur .card-image {
+    background-image: url('https://www.stayvista.com/blog/wp-content/uploads/2024/07/Things-to-do-in-Jaipur.jpg');
+}
+
+.destination-card.kerala .card-image {
+    background-image: url('https://www.skepcoliving.com/wp-content/uploads/2023/09/Kerala-Backwaters-jpg.webp');
+}
+
+.destination-card.goa .card-image {
+    background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fc/f0/goa.jpg?w=600&h=500&s=1');
+}
+
+.destination-card.himalayas .card-image {
+    background-image: url('https://www.shutterstock.com/image-photo/mountain-ice-glacial-seracs-serac-260nw-2618695991.jpg');
+}
+
+/* Packages */
+.package-card {
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.package-card:hover {
+    border-color: #14a085;
+    box-shadow: 0 12px 30px rgba(20, 160, 133, 0.2);
+}
+
+.package-card.featured {
+    border-color: #14a085;
+    box-shadow: 0 12px 30px rgba(20, 160, 133, 0.25);
+}
+
+.package-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #ff6b6b;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.package-header {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    text-align: center;
+}
+
+.package-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #0d7377;
+}
+
+.package-price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #14a085;
+}
+
+.package-body {
+    padding: 2rem;
+}
+
+.package-features {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.package-features li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1rem;
+    color: #666;
+}
+
+.package-features li:last-child {
+    border-bottom: none;
+}
+
+.package-features li::before {
+    content: "✓ ";
+    color: #14a085;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.package-btn {
+    width: 100%;
+    background-color: #14a085;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.package-btn:hover {
+    background-color: #0d7377;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background-color: #1a2332;
+    color: #ffffff;
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    color: #14a085;
+}
+
+.footer-text {
+    font-size: 0.95rem;
+    color: #b8c1cc;
+    margin-bottom: 0.625rem;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #b8c1cc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #14a085;
+}
+
+.fab {
+    color: #aaa;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #2d3748;
+    color: #b8c1cc;
+    font-size: 0.875rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .nav.mobile-open {
+        display: flex;
+    }
+
+    .footer-text,
+    .social-link {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-content .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
